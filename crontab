@@ -1,2 +1,2 @@
-# 毎日午前6時にメニューを更新
-0 6 * * * cd /app && python update_menu.py >> /var/log/cron.log 2>&1 
+# 練習用：1分ごとに現在時刻をログに出力
+* 16 * * * echo "System check: $(date)" >> /var/log/cron.log 2>&1 

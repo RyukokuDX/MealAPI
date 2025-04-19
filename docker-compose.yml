@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: meal_api
+    ports:
+      - "8001:8000"
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    environment:
+      - TZ=Asia/Tokyo
+    command: cron -f
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://host.docker.internal:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 
