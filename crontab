@@ -1,0 +1,2 @@
+# 毎日午前6時にメニューを更新
+0 6 * * * cd /app && python update_menu.py >> /var/log/cron.log 2>&1 
